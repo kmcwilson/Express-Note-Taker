@@ -1,10 +1,11 @@
 const notes = require('express').Router();
 const fs = require('fs');
+const uuid= require('../helpers/uuid');
 
 // GET Route for retrieving all the tips
 notes.get('/', (req, res) => {
   console.info(`${req.method} request received for notes`);
-  fs.readFileSync('./db/notes.json', 'utf8', (err, data) => {
+  fs.readFile('./db/notes.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
     } else {
@@ -13,7 +14,7 @@ notes.get('/', (req, res) => {
   })
 });
 
-  // POST Route for a new UX/UI tip
+  // POST Route for a new UX/UI notes
   notes.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`)
     console.log(req.body);
@@ -24,9 +25,10 @@ notes.get('/', (req, res) => {
       const newNote = {
         title,
         text,
+        note_id: uuid()
       };
       console.log(newNote);
-      fs.readFileSync('./db/notes.json', 'utf8', (err, data) => {
+      fs.readFile('./db/notes.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err);
         } else {
@@ -34,7 +36,7 @@ notes.get('/', (req, res) => {
           console.log(parsedNotes);
           parsedNotes.push(newNote);
 
-          fs.writeFileSync('./db/notes.json', JSON.stringify(parsedNotes), (err) => {
+          fs.writeFile('./db/notes.json', JSON.stringify(parsedNotes), (err) => {
             if (err) {
               console.error(err);
             } else {
