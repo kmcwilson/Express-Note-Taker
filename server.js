@@ -1,20 +1,18 @@
 const express = require ('express');
 const path= require('path');
-// const {clog}= require('./middleware/clog');
 const api = require('./routes/index');
 
 const PORT= process.env.port || 3001;
 
 const app = express();
 
-// app.use(clog);
-
+//Middleware for the application
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
 
 app.use(express.static('public'));
-
+//Using a path to go to the index.html
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
