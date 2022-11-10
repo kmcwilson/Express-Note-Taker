@@ -6,6 +6,10 @@ This is an application that allows a user to write notes on a note taking page. 
 
 ## Screenshot of Application
 
+![]
+![]
+![]
+
 
 
 ## Link to live website
