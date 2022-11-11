@@ -6,10 +6,11 @@ This is an application that allows a user to write notes on a note taking page. 
 
 ## Screenshot of Application
 
-![]
-![]
-![]
+![screenshot-1](assets\note-taker-screenshot-1.jpg)
+![screenshot-2](assets\note-taker-screenshot-2.jpg)
+![screenshot-3](assets\note-taker-screenshot-3.jpg)
 
 
 
 ## Link to live website
+[Link to live website](https://still-wildwood-29248.herokuapp.com/)
